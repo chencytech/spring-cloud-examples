@@ -28,4 +28,9 @@ public class UserFallBack implements UserApi {
     public List<UserEntity> listUser() {
         return null;
     }
+
+    @Override
+    public String feignTimeout() {
+        return null;
+    }
 }

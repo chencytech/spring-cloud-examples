@@ -1,13 +1,14 @@
 package com.chaytech.provider.user.controller;
 
-import com.chaytech.provider.user.service.IUserService;
 import com.chaytech.model.user.UserEntity;
+import com.chaytech.provider.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * User-controller
@@ -52,5 +53,11 @@ public class UserController {
             System.out.println(element.getServiceId() + "\t" + element.getHost() + "\t" + element.getPort() + "\t" + element.getUri());
         }
         return this.discoveryClient;
+    }
+
+    @GetMapping("/feign/feignTimeout")
+    public String feignTimeout()throws Exception{
+        TimeUnit.SECONDS.sleep(5);
+        return "openFeign timeout test";
     }
 }

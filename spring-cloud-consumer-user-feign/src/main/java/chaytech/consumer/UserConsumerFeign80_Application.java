@@ -3,7 +3,6 @@ package chaytech.consumer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
 /**
  * @author Chency
@@ -13,7 +12,7 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 @SpringBootApplication
 // 本服务启动后会自动注册进eureka服务中
 @EnableEurekaClient
-@EnableFeignClients(basePackages ={"com.chaytech.api"} )
+//@EnableFeignClients(basePackages ={"com.chaytech.api"} )
 public class UserConsumerFeign80_Application {
 
     public static void main(String[] args) {

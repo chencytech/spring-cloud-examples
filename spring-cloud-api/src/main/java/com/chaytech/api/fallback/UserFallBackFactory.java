@@ -31,6 +31,11 @@ public class UserFallBackFactory implements FallbackFactory<UserApi> {
             public List<UserEntity> listUser() {
                 return null;
             }
+
+            @Override
+            public String feignTimeout() {
+                return null;
+            }
         };
     }
 }
