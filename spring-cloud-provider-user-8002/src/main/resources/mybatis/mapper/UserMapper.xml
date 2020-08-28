@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.chaytech.provider.user.dao.UserDao">
+<mapper namespace="com.chaytech.provider.UserDao">
     <select id="findById" resultType="com.chaytech.model.user.UserEntity" parameterType="java.lang.Integer">
         select * from t_user where id = #{id};
     </select>
