@@ -131,5 +131,8 @@
         <module>spring-cloud-alibaba-consumer-user-8080</module>
         <module>spring-cloud-alibaba-config-9101</module>
         <module>spring-cloud-alibaba-sentinel-8401</module>
+        <module>spring-cloud-alibaba-seata-order-service</module>
+        <module>spring-cloud-alibaba-seata-storage-service</module>
+        <module>spring-cloud-alibaba-seata-account-service</module>
     </modules>
 </project>

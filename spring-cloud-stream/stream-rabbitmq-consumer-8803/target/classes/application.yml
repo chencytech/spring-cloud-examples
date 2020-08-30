@@ -2,7 +2,7 @@ server:
   port: 8803
 spring:
   application:
-    name: stream-consumer-8803
+    name: stream-consumer
   cloud:
     stream:
       binders: # 在此处配置需要绑定的rabbitmq的服务信息
@@ -20,7 +20,7 @@ spring:
           destination: studyExchange # 表示要使用的exchange名称定义
           content-type: application/json # 设置消息类型，此处为json，文本则设置 text/plan
           binder: defaultRabbit # 设置要绑定的消息服务的具体设置
-          group: consumerA # 自定义分组（同一组内的消息只会被消费一次，不会重复消费）
+          group: consumerA # 自定义分组（同一组内的消息只会被消费一次，不会重复消费）加入分组后，重新启动服务，会去消费此分组内未被消费掉的消息
 
 eureka:
   client: #客户端注册进eureka服务列表内

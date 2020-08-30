@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.chaytech.seata.account.dao.AccountDao">
+    <resultMap id="BaseResultMap" type="com.chaytech.seata.account.domain.Account">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="total" property="total"/>
+        <result column="used" property="used"/>
+        <result column="residue" property="residue"/>
+    </resultMap>
+
+    <select id="getAccountByUserId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select * from t_account where user_id = #{userId}
+    </select>
+
+    <insert id="createAccount" parameterType="com.chaytech.seata.account.domain.Account">
+        insert into t_account (user_id,total,used,residue) values (#{userId},#{total},#{used},#{residue})
+    </insert>
+
+    <update id="decrease">
+        update t_account set used = used + #{amount},residue = residue - #{amount} where user_id = #{userId} and residue >= #{amount}
+    </update>
+</mapper>

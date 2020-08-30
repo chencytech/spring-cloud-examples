@@ -2,7 +2,7 @@ server:
   port: 8802
 spring:
   application:
-    name: stream-consumer-8802
+    name: stream-consumer
   cloud:
     stream:
       binders: # 在此处配置需要绑定的rabbitmq的服务信息

@@ -1,0 +1,27 @@
+server:
+  port: 9010
+
+spring:
+  application:
+    name: seata-account-service
+  cloud:
+    alibaba:
+      seata:
+        # 自定义事务组名称需要与seata-server file.config 中对应
+        tx-service-group: my_tx_group
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  # 数据库配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seata_account?serverTimezone=UTC
+    username: root
+    password: root
+
+# mybatis 配置
+mybatis:
+  type-aliases-package: com.chaytech.seata.*.domain.*    # 所有Entity别名类所在包
+  mapper-locations:
+    - classpath:mapper/*.xml                       # mapper映射文件

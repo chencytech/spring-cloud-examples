@@ -2,7 +2,6 @@ package com.chaytech.consumer.controller;
 
 import com.chaytech.api.user.UserApi;
 import com.chaytech.model.user.UserEntity;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +47,7 @@ public class UserController {
 
     @GetMapping("/consumer/user/getUserHystrix/{id}")
     // 一旦调用服务方法失败并抛出了错误信息后，会自动调用@HystrixCommand标注好的fallbackMethod调用类中的指定方法
-    @HystrixCommand(fallbackMethod = "userHystrixFallback")
+    // @HystrixCommand(fallbackMethod = "userHystrixFallback")
     public UserEntity getUserHystrix(@PathVariable("id") Integer id) {
         Logger.info("getUserHystrix thread name is {}", Thread.currentThread().getName());
         try{
